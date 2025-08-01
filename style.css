@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fdf9f3;
+    color: #1a1a1a;
+  }
+  
+  .hero {
+    background-color: #2f4e75;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .hero a {
+    color: #a8c9e5;
+    text-decoration: none;
+    display: block;
+    margin-top: 1rem;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .app-badge {
+    background-color: #a8c9e5;
+    color: #1a1a1a;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  
+  .subtitle {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-img img {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-top: 1rem;
+  }
+  
+  button {
+    padding: 0.6rem 1.2rem;
+    background-color: #a8c9e5;
+    border: none;
+    color: #1a1a1a;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #90b7d9;
+  }
+  
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #fff;
+  }
+  
+  .quienes,
+  .funcionalidades {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .funcionalidades ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .funcionalidades li {
+    margin: 0.5rem 0;
+  }
+  
+  .funcionalidades a {
+    color: #2f4e75;
+    text-decoration: none;
+  }
+  
+  .funcionalidades a:hover {
+    text-decoration: underline;
+  }
+  
+  .bienestar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #f1ede4;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .frases {
+    background-color: #dbe7dd;
+    padding: 1rem;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .extra-section {
+    padding: 2rem;
+    background-color: #fff;
+  }
+  

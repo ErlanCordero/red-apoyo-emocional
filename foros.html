@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foros y Chats Temáticos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>Foros de Apoyo</h1>
+    <p>Conversa, comparte y conecta con otros miembros de la comunidad.</p>
+    <a href="index.html">← Volver al inicio</a>
+  </header>
+
+  <section class="foro-container">
+    <h2>Temas activos</h2>
+
+    <div class="tema">
+      <h3>🩺 Vivir con diabetes tipo 2</h3>
+      <p><strong>AnaCR:</strong> Hola a todos, ¿cómo manejan los bajones de azúcar durante el día?</p>
+      <p><strong>EduardoJ:</strong> A mí me ayuda llevar snacks en la mochila, como nueces o jugo de frutas.</p>
+    </div>
+
+    <div class="tema">
+      <h3>💊 Efectos secundarios de medicamentos</h3>
+      <p><strong>MartaG:</strong> ¿Alguien ha tomado prednisona y ha tenido problemas para dormir?</p>
+      <p><strong>Carlos89:</strong> Sí, es común. Mi doctor me recomendó tomarla por la mañana.</p>
+    </div>
+
+    <div class="tema">
+      <h3>🧠 Cuidando la salud mental del cuidador</h3>
+      <p><strong>Laura_C:</strong> A veces siento que me estoy olvidando de mí misma. ¿Qué hacen ustedes para relajarse?</p>
+      <p><strong>RicardoS:</strong> Yo empecé a hacer meditación guiada por las noches, me ha ayudado muchísimo.</p>
+    </div>
+
+    <h2>Agregar nuevo comentario</h2>
+    <form id="form-comentario">
+      <label for="tema">Selecciona un tema:</label>
+      <select id="tema" required>
+        <option value="">-- Elegir --</option>
+        <option value="diabetes">Vivir con diabetes tipo 2</option>
+        <option value="medicamentos">Efectos secundarios de medicamentos</option>
+        <option value="mental">Salud mental del cuidador</option>
+      </select>
+      <br><br>
+      <label for="nombre">Tu nombre:</label>
+      <input type="text" id="nombre" required>
+      <br><br>
+      <label for="mensaje">Comentario:</label>
+      <textarea id="mensaje" rows="4" required></textarea>
+      <br><br>
+      <button type="submit">Publicar comentario</button>
+    </form>
+
+    <p class="aviso">* Este foro es una simulación y los comentarios no se guardan.</p>
+  </section>
+
+  <script>
+    document.getElementById("form-comentario").addEventListener("submit", function(event) {
+      event.preventDefault();
+  
+      const tema = document.getElementById("tema").value;
+      const nombre = document.getElementById("nombre").value;
+      const mensaje = document.getElementById("mensaje").value;
+  
+      if (!tema || !nombre || !mensaje) return;
+  
+      // Crear el comentario simulado
+      const nuevoComentario = document.createElement("p");
+      nuevoComentario.innerHTML = `<strong>${nombre}:</strong> ${mensaje}`;
+  
+      // Buscar el contenedor correcto
+      let seccionTema;
+      if (tema === "diabetes") {
+        seccionTema = document.querySelector("h3:contains('diabetes tipo 2')").parentElement;
+      } else if (tema === "medicamentos") {
+        seccionTema = document.querySelector("h3:contains('Efectos secundarios')").parentElement;
+      } else if (tema === "mental") {
+        seccionTema = document.querySelector("h3:contains('salud mental')").parentElement;
+      }
+  
+      if (seccionTema) {
+        seccionTema.appendChild(nuevoComentario);
+      }
+  
+      alert("Comentario publicado.");
+      this.reset();
+    });
+  
+    // Polyfill para querySelector with :contains (no es soportado nativamente)
+    (function() {
+      if (!Element.prototype.matches) {
+        Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+      }
+  
+      if (!document.querySelectorAllContains) {
+        document.querySelectorAllContains = function(selector) {
+          const elements = document.querySelectorAll("*");
+          return Array.from(elements).filter(el => el.tagName.toLowerCase() === selector.split(":")[0] &&
+            el.textContent.includes(selector.split("'")[1]));
+        };
+      }
+  
+      // Sobrescribimos querySelector para permitir ":contains"
+      const originalQuerySelector = document.querySelector;
+      document.querySelector = function(selector) {
+        if (selector.includes(":contains")) {
+          return document.querySelectorAllContains(selector)[0] || null;
+        }
+        return originalQuerySelector.call(document, selector);
+      };
+    })();
+  </script>
+</body>
+</html>

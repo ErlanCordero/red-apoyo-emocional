@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Red de Apoyo Emocional</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      
+      <h1>Un espacio seguro para cuidadores y pacientes</h1>
+      <p class="subtitle">Tu red de apoyo emocional y bienestar</p>
+      <button onclick="mostrarMensaje()">Conoce más</button>
+      <div id="info-extra" style="display: none; margin-top: 1rem; background: #fff; color: #1a1a1a; padding: 1rem; border-radius: 8px;">
+        <p>
+          Nuestra red de apoyo fue creada con el propósito de acompañar emocionalmente a quienes enfrentan enfermedades crónicas, promoviendo el autocuidado, el acceso a información confiable y la conexión humana.
+        </p>
+        <p>
+          Contamos con recursos, foros temáticos, recordatorios de bienestar y más, todo pensado para mejorar tu calidad de vida.
+        </p>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="img/logo-red-social.jpg" alt="Logo de la red de apoyo" />
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="quienes">
+        <h2>¿Quiénes somos?</h2>
+        <p>
+          Brindamos un espacio seguro, interactivo y educativo donde cuidadores y pacientes pueden compartir experiencias y obtener apoyo.
+        </p>
+        <button onclick="mostrarAcercaDe()">Acerca de nosotros</button>
+        <div id="acerca-de" style="display:none; margin-top: 1rem;">
+          <p><strong>Equipo:</strong> Kristel Córdoba, Luis Carvajal, Erlan Cordero</p>
+          <h3>Visión</h3>
+          <p>
+            Ser una red de apoyo digital reconocida por mejorar el bienestar emocional y calidad de vida de pacientes y cuidadores de personas con enfermedades crónicas.
+          </p>
+          <h3>Misión</h3>
+          <p>
+            Brindar un espacio seguro y accesible que facilite la conexión emocional, el intercambio de experiencias y el acceso a recursos educativos, fomentando el autocuidado y la participación activa dentro de una comunidad solidaria.
+          </p>
+        </div>
+      </div>
+    <div class="funcionalidades">
+      <h2>Funcionalidades</h2>
+      <ul>
+        <li><a href="login.html">👤 Iniciar sesión como admin</a></li>
+        <li>👤 Perfiles personalizados</li>
+        <li><a href="foros.html">💬 Foros y chats temáticos</a></li>
+        <li><a href="biblioteca.html">📚 Biblioteca de recursos</a></li>
+        <li><a href="autocuidado.html">⏰ Recordatorios de autocuidado</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bienestar">
+    <div>
+      <h2>Bienestar emocional</h2>
+      <p>“Porque cuidar también significa cuidarte a ti.”</p>
+    </div>
+    <div class="frases">
+      <h3>Frases motivadoras diarias</h3>
+      <p id="frase-texto">🧘 Ejercicios de mindfulness</p>
+      <p id="contenido-texto">❤️ Contenido para fortalecer tu salud mental</p>
+      <button id="btn-cambiar">Mostrar otra frase</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

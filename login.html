@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 5rem auto;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .login-container h2 {
+      text-align: center;
+    }
+    .formulario {
+      display: none;
+      margin-top: 1rem;
+    }
+    .formulario.activo {
+      display: block;
+    }
+    input, button {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Iniciar sesión</h2>
+
+    <label for="tipo">Soy:</label>
+    <select id="tipo" onchange="cambiarFormulario()">
+      <option value="">-- Selecciona una opción --</option>
+      <option value="admin">Admin</option>
+      <option value="paciente">Paciente</option>
+    </select>
+
+    <!-- Formulario Admin -->
+    <form id="form-admin" class="formulario" onsubmit="return loginAdmin()">
+      <input type="text" id="usuario-admin" placeholder="Usuario: admin" required />
+      <input type="password" id="password-admin" placeholder="Contraseña" required />
+      <button type="submit">Ingresar como Admin</button>
+    </form>
+
+    <!-- Formulario Paciente -->
+    <form id="form-paciente" class="formulario" onsubmit="return loginPaciente()">
+      <input type="text" id="usuario-paciente" placeholder="Usuario: paciente" required />
+      <input type="password" id="password-paciente" placeholder="Contraseña" required />
+      <button type="submit">Ingresar como Paciente</button>
+    </form>
+  </div>
+
+  <script>
+    function cambiarFormulario() {
+      const tipo = document.getElementById("tipo").value;
+      document.getElementById("form-admin").classList.remove("activo");
+      document.getElementById("form-paciente").classList.remove("activo");
+
+      if (tipo === "admin") {
+        document.getElementById("form-admin").classList.add("activo");
+      } else if (tipo === "paciente") {
+        document.getElementById("form-paciente").classList.add("activo");
+      }
+    }
+
+    function loginAdmin() {
+      const user = document.getElementById("usuario-admin").value.trim().toLowerCase();
+      const pass = document.getElementById("password-admin").value;
+
+      if (user === "admin" && pass === "1234") {
+        alert("Bienvenido, administrador.");
+        window.location.href = "index.html";
+      } else {
+        alert("Credenciales incorrectas para admin.");
+      }
+      return false;
+    }
+
+    function loginPaciente() {
+      const user = document.getElementById("usuario-paciente").value.trim().toLowerCase();
+      const pass = document.getElementById("password-paciente").value;
+
+      if (user === "paciente" && pass === "1234") {
+        alert("Bienvenido, paciente.");
+        window.location.href = "index.html";
+      } else {
+        alert("Credenciales incorrectas para paciente.");
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>
